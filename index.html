@@ -23,40 +23,51 @@
   </header>
 
   <main>
-    <div class="calculator-container">
+    <form class="calculator-container">
       <div class="inputs-container">
-        
+
         <h1>Bill</h1>
         <label for="bill"></label>
-        <input type="text" id="bill">
+        <input type="text" id="bill" placeholder="0">
+
         <img class="icon-dollar" src="images/icon-dollar.svg" alt="">
 
         <h2>Select Tip %</h2>
-        <button>5%</button>
-        <button>10%</button>
-        <button>15%</button>
-        <button>25%</button>
-        <button>50%</button>
+        <button type="button" id="5%">5%</button>
+        <button type="button" id="10%">10%</button>
+        <button type="button" id="15%">15%</button>
+        <button type="button" id="25%">25%</button>
+        <button type="button" id="50%">50%</button>
 
         <label for="custom"></label>
         <input type="text" id="custom" placeholder="Custom">
 
         <h3>Number of People</h3>
         <label for="num-people"></label>
-        <input type="text" id="num-people">
+        <input type="text" id="num-people" placeholder="0">
         <img class="icon-person" src="images/icon-person.svg" alt="">
       </div>
 
       <div class="calculations-container">
-        <p>Tip Amount</p>
-        <span>/ persons</span>
+        
 
-        <p>Total</p>
-        <span>/ person</span>
-        <button>Reset</button>
+          <div class="tip-amount-container">
+            <p class="tip-amount">Tip Amount</p>
+            <small>/ persons</small>
+            <span id="tip-value">$0.00</span>
+          </div>
+
+          <div class="total-container">
+            <p class="total">Total</p>
+            <small>/ person</small>
+            <span id="total-value">$0.00</span>
+          </div>
+
+     
+        <button id="reset" type="reset">Reset</button>
       </div>
 
-    </div>
+    </form>
   </main>
 
   <footer class="attribution">
