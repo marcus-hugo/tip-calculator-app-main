@@ -120,13 +120,16 @@ header img {
 }
 
 /* utility class? */
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-size: 16px;
     padding: 2rem 0 .5rem 0;
 }
 
 /* component class? */
-#bill, #num-people {
+#bill,
+#num-people {
     border: none;
     background: var(--lighter-grayish-cyan);
     display: block;
@@ -134,10 +137,34 @@ h1, h2, h3 {
     height: 48px;
 }
 
-.icon-dollar, .icon-person {
+.icon-dollar,
+.icon-person {
     position: relative;
     top: -32px;
     left: 20px;
+}
+
+button {
+    width: 146px;
+    height: 48px;
+    background: var(--very-dark-cyan);
+    border-radius: 5px;
+    font-size: 24px;
+    text-align: center;
+    color: var(--white);
+    border: none;
+    margin-bottom: 1rem;
+}
+
+#custom {
+    width: 146px;
+    height: 48px;
+    border: none;
+    background: var(--lighter-grayish-cyan);
+    border-radius: 5px;
+    text-align: center;
+    font-size: 24px;
+    color: var(--very-dark-cyan);
 }
 
 /* calculations section */
