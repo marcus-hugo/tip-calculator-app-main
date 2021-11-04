@@ -132,6 +132,7 @@ h3 {
 #bill,
 #num-people {
     border: none;
+    border-radius: 5px;
     background: var(--lighter-grayish-cyan);
     display: block;
     width: 100%;
@@ -143,11 +144,27 @@ h3 {
     font-size: 24px;
 }
 
+#bill:hover, #num-people {
+    cursor: pointer;
+}
+#bill:focus, #num-people:focus {
+    border: 2px solid var(--strong-cyan);
+}
+
 .icon-dollar,
 .icon-person {
     position: relative;
     top: -32px;
     left: 20px;
+}
+
+#five:hover,
+#ten:hover,
+#fifteen:hover,
+#twenty-five:hover,
+#fifty:hover {
+    cursor: pointer;
+    background: #9FE8DF;
 }
 
 button {
