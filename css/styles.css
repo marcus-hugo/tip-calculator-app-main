@@ -158,14 +158,14 @@ h3 {
     left: 20px;
 }
 
-#five:hover,
+/* #five:hover,
 #ten:hover,
 #fifteen:hover,
 #twenty-five:hover,
 #fifty:hover {
     cursor: pointer;
     background: #9FE8DF;
-}
+} */
 
 button {
     width: 146px;
@@ -177,6 +177,16 @@ button {
     color: var(--white);
     border: none;
     margin-bottom: 1rem;
+}
+
+button:hover {
+    cursor: pointer;
+    background: #9FE8DF;
+}
+
+#reset:hover {
+    cursor: pointer;
+    background: #9FE8DF;
 }
 
 #custom {
@@ -191,6 +201,11 @@ button {
     outline: none;
 }
 
+#custom:hover, #bill:hover, #num-people:hover {
+    cursor: pointer;
+    border: 2px solid var(--strong-cyan);
+}
+
 /* calculations section */
 .calculations-container {
     background: var(--very-dark-cyan);
@@ -199,8 +214,6 @@ button {
     height: 257px;
     border-radius: 15px;
 }
-
-
 
 #reset {
     width: 281px;
@@ -212,8 +225,6 @@ button {
     text-transform: uppercase;
     margin: 0 22px;
 }
-
-
 
 .tip-amount-container {
     padding: 2.3rem 1.3rem 1.2rem 1.3rem;

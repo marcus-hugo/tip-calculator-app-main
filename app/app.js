@@ -33,11 +33,16 @@ for(let button of buttons) {
 
         // get the total bill per person
         const totalPerPerson = (billValue / numOfPeople.value)
-        
+               
         // update the tip amount per person calculation display
-        document.getElementById('tip-value').innerText = tipPerPerson
+        document.getElementById('tip-value').innerText = tipPerPerson.toFixed(2)
 
         // update the total per person calculation display
-        document.getElementById('total-value').innerText = totalPerPerson
-    })      
+        document.getElementById('total-value').innerText = totalPerPerson.toFixed(2)
+    })     
 }
+// reset all values and display to 0
+document.getElementById('reset').addEventListener('click', function() {
+    document.getElementById('tip-value').innerText = '0.00'
+    document.getElementById('total-value').innerText = '0.00'
+})
