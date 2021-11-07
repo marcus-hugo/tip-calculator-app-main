@@ -2,19 +2,20 @@
 
 const bill = document.getElementById('bill');
 const numOfPeople = document.getElementById('num-people');
-const buttons = document.querySelectorAll('button');
+const buttons = document.querySelectorAll('.percent-button');
 const headingError = document.querySelector('.num-error');
-
+const reset = document.getElementById('reset');
 // Loop over buttons:
     // get %  when button is clicked
     // divide total by number of persons = total per person
     // divide % by number of persons = tip per person
 
-for(let button of buttons) {
+for (let button of buttons) {
     button.addEventListener('click', function() {
-    // button.classList.add('clicked')
-    // button.previousElementSibling.classList.remove('clicked')
-    // button.nextElementSibling.classList.remove('clicked')
+    
+    // based on: https://travis.media/how-to-add-and-remove-a-class-from-list-items-with-pure-javascript/
+    (document.querySelector('.clicked')) ? document.querySelector('.clicked').classList.remove('clicked') : '';
+    this.classList.add('clicked');
 
     // convert button text to a decimal number
     const buttonPercent = (parseInt(button.innerText, 10) * 0.01)
@@ -30,13 +31,17 @@ for(let button of buttons) {
         
     // get the total bill per person
     const totalPerPerson = (billValue / numOfPeople.value)
-           
+          
+    
+
     if (numOfPeople.value === '') {
         numOfPeople.classList.add('error');
         headingError.style.visibility = 'visible';
+        reset.style.opacity = '0.35'
     } else if(numOfPeople.value !== '') {
         numOfPeople.classList.remove('error');
         headingError.style.visibility = 'hidden';
+        reset.style.opacity = '1';
     }
 
     // update the tip amount per person in calculation display
@@ -56,13 +61,27 @@ document.getElementById('custom').addEventListener('input', function() {
     const tipPerPerson = (totalTip / numOfPeople.value)
     const totalPerPerson = (billValue / numOfPeople.value)
         
+    if (numOfPeople.value === '') {
+        numOfPeople.classList.add('error');
+        headingError.style.visibility = 'visible';
+    } else if(numOfPeople.value !== '') {
+        numOfPeople.classList.remove('error');
+        headingError.style.visibility = 'hidden';
+    }
+
     document.getElementById('tip-value').innerText = tipPerPerson.toFixed(2)
     document.getElementById('total-value').innerText = totalPerPerson.toFixed(2)
 })
 
 
-// reset all values and display to 0
+// reset all values, display to 0, and styles
 document.getElementById('reset').addEventListener('click', function() {
     document.getElementById('tip-value').innerText = '0.00'
     document.getElementById('total-value').innerText = '0.00'
+    numOfPeople.classList.remove('error');
+    headingError.style.visibility = 'hidden';
+    reset.style.opacity = '0.35';
+    for (let button of buttons) {
+        button.classList.remove('clicked')
+    }
 })

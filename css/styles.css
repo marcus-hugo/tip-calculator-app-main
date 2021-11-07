@@ -227,6 +227,7 @@ button:hover, #reset:hover {
     font-size: 20px;
     text-transform: uppercase;
     margin: 0 22px;
+    opacity: 0.35;
 }
 
 .tip-amount-container {
