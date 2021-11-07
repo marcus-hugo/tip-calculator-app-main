@@ -43,6 +43,7 @@
         <input type="text" id="custom" placeholder="Custom">
 
         <h3>Number of People</h3>
+        <small class="num-error">Can't be zero</small>
         <label for="num-people"></label>
         <input type="text" id="num-people" placeholder="0">
         <img class="icon-person" src="images/icon-person.svg" alt="">
@@ -53,13 +54,13 @@
 
           <div class="tip-amount-container">
             <p class="tip-amount">Tip Amount</p>
-            <small>/ persons</small>
+            <small class="small-display">/ persons</small>
             <span id="tip-value">$0.00</span>
           </div>
 
           <div class="total-container">
             <p class="total">Total</p>
-            <small>/ person</small>
+            <small class="small-display">/ person</small>
             <span id="total-value">$0.00</span>
           </div>
 
@@ -72,7 +73,7 @@
 
   <footer class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-    Coded by <a href="#">Marcus Hugo</a>.
+    Coded by <a href="#" title="let's roam">Marcus Hugo</a>.
   </footer>
 
   <script src="app/app.js"></script>

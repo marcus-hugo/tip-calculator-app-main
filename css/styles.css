@@ -131,22 +131,19 @@ h3 {
 /* component class? */
 #bill,
 #num-people {
+    outline: none;
     border: none;
     border-radius: 5px;
     background: var(--lighter-grayish-cyan);
     display: block;
     width: 100%;
     height: 48px;
-    outline: none;
     text-align: right;
     padding-right: 1rem;
     font-weight: 700;
     font-size: 24px;
 }
 
-#bill:hover, #num-people {
-    cursor: pointer;
-}
 #bill:focus, #num-people:focus {
     border: 2px solid var(--strong-cyan);
 }
@@ -157,15 +154,6 @@ h3 {
     top: -32px;
     left: 20px;
 }
-
-/* #five:hover,
-#ten:hover,
-#fifteen:hover,
-#twenty-five:hover,
-#fifty:hover {
-    cursor: pointer;
-    background: #9FE8DF;
-} */
 
 button {
     width: 146px;
@@ -179,14 +167,14 @@ button {
     margin-bottom: 1rem;
 }
 
-button:hover {
+button:hover, #reset:hover {
     cursor: pointer;
     background: #9FE8DF;
 }
 
-#reset:hover {
-    cursor: pointer;
-    background: #9FE8DF;
+.clicked {
+    background: #26C2AE;
+    color: #00474B;
 }
 
 #custom {
@@ -204,6 +192,21 @@ button:hover {
 #custom:hover, #bill:hover, #num-people:hover {
     cursor: pointer;
     border: 2px solid var(--strong-cyan);
+}
+
+/* error: can't be zero */
+#num-people.error {
+    border: 2px solid #E17052;
+}
+
+.num-error {
+    color: #E17052;
+    font-weight: 700;
+    font-size: 1rem;
+    position: absolute;
+    left: 182px;
+    bottom: 72px;
+    visibility: hidden;
 }
 
 /* calculations section */
@@ -246,7 +249,7 @@ button:hover {
     grid-area: 1/1/2/2;
 }
 
-small {
+.small-display {
     font-size: 13px;
     color: var(--dark-grayish-cyan);
     grid-area: 2/1/3/2;
