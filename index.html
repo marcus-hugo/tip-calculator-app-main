@@ -25,23 +25,26 @@
   <main>
     <form class="calculator-container">
       <div class="inputs-container">
-
+        <!-- Bill Input -->
         <h1>Bill</h1>
         <label for="bill"></label>
         <input type="text" id="bill" placeholder="0">
 
         <img class="icon-dollar" src="images/icon-dollar.svg" alt="">
 
+        <!-- Tip Buttons -->
         <h2>Select Tip %</h2>
-        <button class="percent-button" type="button" id="five">5%</button>
-        <button class="percent-button" type="button" id="ten">10%</button>
-        <button class="percent-button" type="button" id="fifteen">15%</button>
-        <button class="percent-button" type="button" id="twenty-five">25%</button>
-        <button class="percent-button" type="button" id="fifty">50%</button>
+        <button class="percent-button" type="button">5%</button>
+        <button class="percent-button" type="button">10%</button>
+        <button class="percent-button" type="button">15%</button>
+        <button class="percent-button" type="button">25%</button>
+        <button class="percent-button" type="button">50%</button>
 
+        <!-- Custom % Button -->
         <label for="custom"></label>
         <input type="text" id="custom" placeholder="Custom">
-
+        
+        <!-- Number of People Input -->
         <h3>Number of People</h3>
         <small class="num-error">Can't be zero</small>
         <label for="num-people"></label>
@@ -49,9 +52,8 @@
         <img class="icon-person" src="images/icon-person.svg" alt="">
       </div>
 
+      <!-- Calculations Display -->
       <div class="calculations-container">
-        
-
           <div class="tip-amount-container">
             <p class="tip-amount">Tip Amount</p>
             <small class="small-display">/ persons</small>
@@ -64,7 +66,7 @@
             <span id="total-value">$0.00</span>
           </div>
 
-     
+          <!-- Reset Button -->
         <button id="reset" type="reset">Reset</button>
       </div>
 

@@ -167,7 +167,7 @@ button {
     margin-bottom: 1rem;
 }
 
-button:hover, #reset:hover {
+.percent-button:hover {
     cursor: pointer;
     background: #9FE8DF;
 }
