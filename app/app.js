@@ -5,8 +5,9 @@ const numOfPeople = document.getElementById('num-people');
 const buttons = document.querySelectorAll('.percent-button');
 const headingError = document.querySelector('.num-error');
 const reset = document.getElementById('reset');
-// Loop over buttons:
-    // get %  when button is clicked
+
+// Iterate over buttons:
+    // get % when button is clicked
     // divide total by number of persons = total per person
     // divide % by number of persons = tip per person
 
@@ -18,30 +19,31 @@ for (let button of buttons) {
     this.classList.add('clicked');
 
     // convert button text to a decimal number
-    const buttonPercent = (parseInt(button.innerText, 10) * 0.01)
+    const buttonPercent = (parseInt(button.innerText, 10) * 0.01);
             
     // convert bill value to a number
-    const billValue = parseInt(bill.value, 10)
+    const billValue = parseInt(bill.value, 10);
             
     // multiply buttonPercent by billValue to get total tip amount
-    const totalTip = buttonPercent * billValue
+    const totalTip = buttonPercent * billValue;
         
     // divide totalTip by numOfPeople to get total tip per person
-    const tipPerPerson = (totalTip / numOfPeople.value)
+    const tipPerPerson = (totalTip / numOfPeople.value);
         
     // get the total bill per person
-    const totalPerPerson = (billValue / numOfPeople.value)
-          
-    
+    const totalPerPerson = (billValue / numOfPeople.value);
 
+    // Toggling error styling
     if (numOfPeople.value === '') {
         numOfPeople.classList.add('error');
         headingError.style.visibility = 'visible';
-        reset.style.opacity = '0.35'
-    } else if(numOfPeople.value !== '') {
+        reset.style.opacity = '0.35';
+        tipAmount.innerText = '0.00'
+    } else if (numOfPeople.value !== '') {
         numOfPeople.classList.remove('error');
         headingError.style.visibility = 'hidden';
         reset.style.opacity = '1';
+        reset.style.cursor = 'pointer';
     }
 
     // update the tip amount per person in calculation display
@@ -64,9 +66,13 @@ document.getElementById('custom').addEventListener('input', function() {
     if (numOfPeople.value === '') {
         numOfPeople.classList.add('error');
         headingError.style.visibility = 'visible';
+        reset.style.opacity = '0.35';
+        
     } else if(numOfPeople.value !== '') {
         numOfPeople.classList.remove('error');
         headingError.style.visibility = 'hidden';
+        reset.style.opacity = '1';
+        reset.style.cursor = 'pointer';
     }
 
     document.getElementById('tip-value').innerText = tipPerPerson.toFixed(2)
@@ -81,6 +87,7 @@ document.getElementById('reset').addEventListener('click', function() {
     numOfPeople.classList.remove('error');
     headingError.style.visibility = 'hidden';
     reset.style.opacity = '0.35';
+    reset.style.cursor = 'default';
     for (let button of buttons) {
         button.classList.remove('clicked')
     }
