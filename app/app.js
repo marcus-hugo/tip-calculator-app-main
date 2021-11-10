@@ -1,10 +1,10 @@
-// Global variables: bill amount, number of people, all % buttons
-
+// Global variables
 const bill = document.getElementById('bill');
-const numOfPeople = document.getElementById('num-people');
 const buttons = document.querySelectorAll('.percent-button');
+const customButton = document.getElementById('custom');
+const numOfPeople = document.getElementById('num-people');
 const headingError = document.querySelector('.num-error');
-const reset = document.getElementById('reset');
+const resetButton = document.getElementById('reset');
 
 // Iterate over buttons:
     // get % when button is clicked
@@ -28,10 +28,10 @@ for (let button of buttons) {
     const totalTip = buttonPercent * billValue;
         
     // divide totalTip by numOfPeople to get total tip per person
-    const tipPerPerson = (totalTip / numOfPeople.value);
+    const tipPerPerson = (totalTip / parseInt(numOfPeople.value, 10));
         
     // get the total bill per person
-    const totalPerPerson = (billValue / numOfPeople.value);
+    const totalPerPerson = (billValue / parseInt(numOfPeople.value, 10));
 
     // Toggling error styling
     if (numOfPeople.value === '') {
@@ -55,13 +55,13 @@ for (let button of buttons) {
 }
 
 // get the value from the custom input
-document.getElementById('custom').addEventListener('input', function() {
-    let customValue = (parseInt(document.getElementById('custom').value, 10) * 0.01)
-
-    const billValue = parseInt(bill.value, 10)
-    const totalTip = customValue * billValue
-    const tipPerPerson = (totalTip / numOfPeople.value)
-    const totalPerPerson = (billValue / numOfPeople.value)
+// this helped with adding two event listeners: https://gomakethings.com/listening-to-multiple-events-in-vanilla-js/
+const customButtonEvents = function() {
+    const customValue = (parseInt(customButton.value, 10) * 0.01);
+    const billValue = parseInt(bill.value, 10);
+    const totalTip = customValue * billValue;
+    const tipPerPerson = (totalTip / numOfPeople.value);
+    const totalPerPerson = (billValue / numOfPeople.value);
         
     if (numOfPeople.value === '') {
         numOfPeople.classList.add('error');
@@ -77,11 +77,14 @@ document.getElementById('custom').addEventListener('input', function() {
 
     document.getElementById('tip-value').innerText = tipPerPerson.toFixed(2)
     document.getElementById('total-value').innerText = totalPerPerson.toFixed(2)
-})
+}
 
+// add event listener, pass in the event type, and call the function
+customButton.addEventListener('input', customButtonEvents);
+customButton.addEventListener('click', customButtonEvents);
 
 // reset all values, display to 0, and styles
-document.getElementById('reset').addEventListener('click', function() {
+resetButton.addEventListener('click', function() {
     document.getElementById('tip-value').innerText = '0.00'
     document.getElementById('total-value').innerText = '0.00'
     numOfPeople.classList.remove('error');
