@@ -110,7 +110,7 @@ header img {
 .calculator-container {
     background: var(--white);
     border-radius: 25px 25px 0 0;
-    max-width: 375px;
+    width: 375px;
     margin: 0 auto;
     padding-bottom: 1.8rem;
 }
@@ -275,3 +275,58 @@ button {
 .attribution a {
     color: hsl(228, 45%, 44%);
 }
+
+/******** Desktop Layout */
+
+@media (min-width: 1080px) {
+    .calculator-container {
+        display: flex;
+        justify-content: center;
+        gap: 48px;
+        width: 920px;
+        height: 481px;
+        border-radius: 25px;
+        padding: 0;
+    }
+
+    .inputs-container {
+        width: 379px;
+        height: 388px;
+        margin: 0;
+    }
+
+    .percent-button, #custom {
+        width: 117px;
+    }
+
+    #bill, #num-people {
+        width: 379px;
+    }
+
+    .num-error {
+        left: 244px;
+        bottom: 11px;
+    }
+
+    .calculations-container {
+        width: 413px;
+        height: 417px;
+        margin: 0;
+        padding: 0;
+        align-self: center;
+        position: relative;
+    }
+
+    #tip-value, #total-value {
+        font-size: 48px;
+    }
+
+    #reset {
+        width: 333px;
+        position: relative;
+        top: 101px;
+        left: 18px;
+    }
+}
+
+
