@@ -39,6 +39,9 @@ for (let button of buttons) {
 
     const tipPerPerson = (Math.trunc((totalTip / numPeople)*100)) / 100;
 
+    if(tipDisplay.innerText === 'NaN') {
+        tipDisplay.innerText = '0.00'
+    }
     // get the total bill per person
     const totalPerPerson = (billValue / numOfPeople.value).toFixed(2);
 
@@ -63,6 +66,12 @@ for (let button of buttons) {
     // update the total per person in calculation display
     totalDisplay.innerText = totalPerPerson;
 
+    if(tipDisplay.innerText === 'NaN'| totalDisplay.innerText === 'Infinity') {
+        tipDisplay.innerText = '0.00'
+    }
+    if(totalDisplay.innerText === 'Infinity'| totalDisplay.innerText === 'NaN' ) {
+        totalDisplay.innerText = '0.00'
+    }
     })     
 }
 
@@ -92,6 +101,13 @@ const customButtonEvents = function() {
 
     tipDisplay.innerText = tipPerPerson;
     totalDisplay.innerText = totalPerPerson;
+
+    if(tipDisplay.innerText === 'NaN'| totalDisplay.innerText === 'Infinity') {
+        tipDisplay.innerText = '0.00'
+    }
+    if(totalDisplay.innerText === 'Infinity'| totalDisplay.innerText === 'NaN' ) {
+        totalDisplay.innerText = '0.00'
+    }
 }
 // add event listener, pass in the event type, and call the function
 customButton.addEventListener('input', customButtonEvents);
@@ -109,3 +125,4 @@ resetButton.addEventListener('click', function() {
         button.classList.remove('clicked')
     }
 })
+
