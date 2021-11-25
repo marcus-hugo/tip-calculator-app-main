@@ -10,6 +10,13 @@ const resetButton = document.getElementById('reset');
 const tipDisplay = document.getElementById('tip-value');
 const totalDisplay = document.getElementById('total-value');
 
+// prevent non numeric characters
+bill.addEventListener('input', function() {
+    if(isNaN(bill.value) === true) {
+          bill.value = '';
+      }
+  })
+
 // Loop over buttons:
     // get % when button is clicked
     // divide total by number of persons = total per person
@@ -43,7 +50,7 @@ for (let button of buttons) {
         tipDisplay.innerText = '0.00'
     }
     // get the total bill per person
-    const totalPerPerson = (billValue / numOfPeople.value).toFixed(2);
+    const totalPerPerson = (billValue / numOfPeople.value + tipPerPerson).toFixed(2);
 
     // Toggling error styling
 
@@ -75,8 +82,15 @@ for (let button of buttons) {
     })     
 }
 
-/* get the value from the custom input
- this helped with adding two event listeners: 
+// prevent non numeric characters
+customButton.addEventListener('input', function() {
+    if(isNaN(customButton.value) === true) {
+          customButton.value = '';
+      }
+  })
+//  get the value from the custom input:
+
+ /* this helped with adding two event listeners: 
  https://gomakethings.com/listening-to-multiple-events-in-vanilla-js/ */
 
 const customButtonEvents = function() {
@@ -85,7 +99,7 @@ const customButtonEvents = function() {
     const numPeople = parseInt(numOfPeople.value, 10);
     const totalTip = customValue * billValue;
     const tipPerPerson = (Math.trunc((totalTip / numPeople)*100)) / 100;
-    const totalPerPerson = (billValue / numOfPeople.value);
+    const totalPerPerson = (billValue / numOfPeople.value + tipPerPerson);
         
     if (numOfPeople.value === '') {
         numOfPeople.classList.add('error');
