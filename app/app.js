@@ -99,7 +99,7 @@ const customButtonEvents = function() {
     const numPeople = parseInt(numOfPeople.value, 10);
     const totalTip = customValue * billValue;
     const tipPerPerson = (Math.trunc((totalTip / numPeople)*100)) / 100;
-    const totalPerPerson = (billValue / numOfPeople.value + tipPerPerson);
+    const totalPerPerson = (billValue / numOfPeople.value + tipPerPerson).toFixed(2);
         
     if (numOfPeople.value === '') {
         numOfPeople.classList.add('error');
